@@ -1,8 +1,5 @@
 package com.github.sithumonline.firetwo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,10 +11,15 @@ import android.widget.Toast;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class NewNoteActivity extends AppCompatActivity {
     private EditText editTextTitle;
     private EditText editTextDescription;
     private NumberPicker numberPickerPriority;
+
+    public NewNoteActivity() {}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,19 @@ public class NewNoteActivity extends AppCompatActivity {
 
         numberPickerPriority.setMinValue(1);
         numberPickerPriority.setMaxValue(10);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+
+        String title = extras.getString("Title");
+        String description = extras.getString("Description");
+        int Priority = extras.getInt("Priority");
+
+        editTextTitle.setText(title);
+        editTextDescription.setText(description);
+        numberPickerPriority.setValue(Priority);
     }
 
     @Override

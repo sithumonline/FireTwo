@@ -53,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder, @NonNull @NotNull RecyclerView.ViewHolder target) {
+            public boolean onMove(@NonNull @NotNull RecyclerView recyclerView,
+                                  @NonNull @NotNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull @NotNull RecyclerView.ViewHolder target) {
                 return false;
             }
 
@@ -71,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
                 String path = documentSnapshot.getReference().getPath();
                 Toast.makeText(MainActivity.this,
                         "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
+                Note updateNote = options.getSnapshots().getSnapshot(position).toObject(Note.class);
+
+                Intent updateView = new Intent(MainActivity.this, NewNoteActivity.class);
+                updateView.putExtra("Title", updateNote.getTitle());
+                updateView.putExtra("Description", updateNote.getDescription());
+                updateView.putExtra("Priority", updateNote.getPriority());
+                startActivity(updateView);
             }
         });
     }
