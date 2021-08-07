@@ -3,7 +3,6 @@ package com.github.sithumonline.firetwo;
 import android.os.Bundle;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -19,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_main);
         setUpRecyclerView();
     }
