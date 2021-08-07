@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 updateView.putExtra("Title", updateNote.getTitle());
                 updateView.putExtra("Description", updateNote.getDescription());
                 updateView.putExtra("Priority", updateNote.getPriority());
+                updateView.putExtra("DocumentId", id);
                 startActivity(updateView);
             }
         });
