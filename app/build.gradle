@@ -38,6 +38,9 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:19.0.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.3'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
