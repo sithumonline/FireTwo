@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "278726281406",
+    "project_id": "fireone-18094",
+    "storage_bucket": "fireone-18094.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278726281406:android:f9308e464a86694468b6ef",
+        "android_client_info": {
+          "package_name": "com.github.sithumonline.fireone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278726281406-759fb1eh1kbtmk65dsma5rmvc1harcc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.sithumonline.fireone",
+            "certificate_hash": "dae35ddd2f1c9e4f368ec08d9a057b1d245dcffd"
+          }
+        },
+        {
+          "client_id": "278726281406-arkvq2bqd2pujfh2p0nl467lf0q92o74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq_iEkumOkUXByytgoOv9t0IzJVoBSPzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278726281406-arkvq2bqd2pujfh2p0nl467lf0q92o74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278726281406:android:28340640d0ee300a68b6ef",
+        "android_client_info": {
+          "package_name": "com.github.sithumonline.firetwo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278726281406-arkvq2bqd2pujfh2p0nl467lf0q92o74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq_iEkumOkUXByytgoOv9t0IzJVoBSPzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278726281406-arkvq2bqd2pujfh2p0nl467lf0q92o74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
