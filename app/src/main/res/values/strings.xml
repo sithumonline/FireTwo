@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">FireTwo</string>
-    <string name="fab_content_desc">foo</string>
-    <string name="page_title">Curry</string>
+    <string name="app_name">Nexter Chef</string>
     <string name="delete">delete item</string>
     <string name="save">save item</string>
+    <string name="action_button_desc">foo</string>
     <string name="juice_name">Juice</string>
     <string name="main_juice_card_description">Juice Section</string>
     <string name="curry_name">Curry</string>
@@ -20,4 +19,7 @@
     <string name="sweet_card_two_description">Sweet Two</string>
     <string name="snack_two_name">Name of Snack</string>
     <string name="snack_card_two_description">Snack Two</string>
+    <string name="form_name">Type a Name</string>
+    <string name="form_steps">Type steps</string>
+    <string name="form_ingredients">Type ingredients</string>
 </resources>

@@ -17,26 +17,32 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/nexter"
             app:menu="@menu/nexter_menu_items"
             app:navigationIcon="@drawable/ic_close"
-            app:title="@string/page_title"
-            android:background="@color/nexter"
-            />
+            app:title="@string/curry_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Note: A RecyclerView can also be used -->
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/foo"
+            android:id="@+id/curry_form_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/content_description_media"
+            android:hint="@string/form_name"
             android:translationY="100dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/curry_form_steps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/form_steps"
+            android:translationY="300dp" />
 
     </androidx.core.widget.NestedScrollView>
 
