@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">FireTwo</string>
-    <string name="title">Curry</string>
-    <string name="content_description_media">foo baa</string>
     <string name="fab_content_desc">foo</string>
     <string name="page_title">Curry</string>
     <string name="delete">delete item</string>
     <string name="save">save item</string>
+    <string name="juice_name">Juice</string>
+    <string name="main_juice_card_description">Juice Section</string>
+    <string name="curry_name">Curry</string>
+    <string name="main_curry_card_description">Curry Section</string>
+    <string name="sweet_name">Sweet</string>
+    <string name="main_sweet_card_description">Sweet Section</string>
+    <string name="snack_name">Snack</string>
+    <string name="main_snack_card_description">Snack Section</string>
 </resources>

@@ -7,7 +7,7 @@
     tools:context=".NexterMainActivity">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/main_curry_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
@@ -21,9 +21,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-                android:contentDescription="@string/content_description_media"
+                android:contentDescription="@string/main_curry_card_description"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/_054348" />
+                app:srcCompat="@drawable/curry_main" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title"
+                    android:text="@string/curry_name"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 
@@ -47,7 +47,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_two"
+        android:id="@+id/main_juice_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -62,14 +62,14 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-                android:contentDescription="@string/content_description_media"
+                android:contentDescription="@string/main_juice_card_description"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/_054348" />
+                app:srcCompat="@drawable/juice_main" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/curry"
+                android:background="@color/juice"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -77,7 +77,89 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title"
+                    android:text="@string/juice_name"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_sweet_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:translationY="600dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Media -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:contentDescription="@string/main_sweet_card_description"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/sweet_main" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/sweet"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sweet_name"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_snack_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:translationY="900dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Media -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:contentDescription="@string/main_snack_card_description"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/snack_main" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/snack"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/snack_name"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 

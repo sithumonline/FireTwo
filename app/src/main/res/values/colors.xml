@@ -8,5 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="curry">#93063e</color>
+    <color name="juice">#ca0035</color>
+    <color name="sweet">#ff5627</color>
+    <color name="snack">#ffc400</color>
     <color name="nexter">#5b1647</color>
 </resources>
