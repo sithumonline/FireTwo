@@ -22,4 +22,5 @@
     <string name="form_name">Type a Name</string>
     <string name="form_steps">Type steps</string>
     <string name="form_ingredients">Type ingredients</string>
+    <string name="form_steps_ingredients_text_input_height">250dp</string>
 </resources>
