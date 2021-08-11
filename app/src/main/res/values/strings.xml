@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FireTwo</string>
+    <string name="title">Curry</string>
+    <string name="content_description_media">foo baa</string>
+    <string name="fab_content_desc">foo</string>
+    <string name="page_title">Curry</string>
+    <string name="delete">delete item</string>
+    <string name="save">save item</string>
 </resources>
