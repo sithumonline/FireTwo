@@ -12,4 +12,12 @@
     <string name="main_sweet_card_description">Sweet Section</string>
     <string name="snack_name">Snack</string>
     <string name="main_snack_card_description">Snack Section</string>
+    <string name="juice_two_name">Name of Juice</string>
+    <string name="juice_card_two_description">Juice Two</string>
+    <string name="curry_two_name">Name of Curry</string>
+    <string name="curry_card_two_description">Curry Two</string>
+    <string name="sweet_two_name">Name of Sweet</string>
+    <string name="sweet_card_two_description">Sweet Two</string>
+    <string name="snack_two_name">Name of Snack</string>
+    <string name="snack_card_two_description">Snack Two</string>
 </resources>
