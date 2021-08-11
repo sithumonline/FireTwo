@@ -19,22 +19,24 @@
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/nexter_menu_items"
             app:navigationIcon="@drawable/ic_close"
-            app:title="@string/page_title" />
+            app:title="@string/page_title"
+            android:background="@color/nexter"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Note: A RecyclerView can also be used -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <!-- Scrollable content -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/foo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/content_description_media"
+            android:translationY="100dp" />
 
     </androidx.core.widget.NestedScrollView>
 
