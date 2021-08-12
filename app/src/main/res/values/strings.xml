@@ -37,6 +37,11 @@
     <string name="delivery_example_price">Rs. 350/=</string>
     <string name="delivery_example_name">Potato Chips</string>
 
+    <string name="delivery_example_address">33/A Athurugiriya Rd, Pannipitiya 10230</string>
+    <string name="rs_1080">Rs. 1080/=</string>
+    <string name="count">Count:</string>
+    <string name="buy">Buy</string>
+
     <string name="form_steps_ingredients_text_input_height">130dp</string>
     <string name="action_gallery_only">Pick a Photo</string>
 </resources>

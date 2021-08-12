@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="33/A Athurugiriya Rd, Pannipitiya 10230"
+        android:text="@string/delivery_example_address"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="@color/nexter"
         android:textSize="18sp"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Count:"
+        android:text="@string/count"
         android:textAppearance="@android:style/TextAppearance.Medium"
         android:textColor="@color/nexter"
         android:layout_margin="8dp" />
@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rs. 1080/="
+        android:text="@string/rs_1080"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="@color/nexter"
         android:layout_margin="8dp" />
@@ -68,7 +68,7 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buy"
+        android:text="@string/buy"
         android:layout_margin="8dp" />
 
 </LinearLayout>

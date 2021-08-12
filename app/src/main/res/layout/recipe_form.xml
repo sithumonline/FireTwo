@@ -20,7 +20,7 @@
             android:background="@color/nexter"
             app:menu="@menu/nexter_menu_items"
             app:navigationIcon="@drawable/ic_close"
-            app:title="@string/curry_name" />
+            app:title="Recipe" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
