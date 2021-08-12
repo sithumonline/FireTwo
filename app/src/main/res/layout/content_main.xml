@@ -21,6 +21,8 @@
 
             <include layout="@layout/content_gallery_only" />
 
+            <include layout="@layout/curry_form_two" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
