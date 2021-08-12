@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/curry_name"
+                    android:text="@string/recipes"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 
@@ -62,7 +62,7 @@
                 android:layout_height="194dp"
                 android:contentDescription="@string/main_juice_card_description"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/juice_main" />
+                app:srcCompat="@drawable/request_box" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/juice_name"
+                    android:text="@string/food_request_name"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 
@@ -102,7 +102,7 @@
                 android:layout_height="194dp"
                 android:contentDescription="@string/main_sweet_card_description"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/sweet_main" />
+                app:srcCompat="@drawable/delivery_services" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sweet_name"
+                    android:text="@string/delivery_name"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 
@@ -142,7 +142,7 @@
                 android:layout_height="194dp"
                 android:contentDescription="@string/main_snack_card_description"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/snack_main" />
+                app:srcCompat="@drawable/rent_main" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/snack_name"
+                    android:text="@string/rent_name"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 

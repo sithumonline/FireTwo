@@ -51,4 +51,6 @@
 
     <string name="form_steps_ingredients_text_input_height">130dp</string>
     <string name="action_gallery_only">Pick a Photo</string>
+
+    <string name="recipes">Recipes</string>
 </resources>
