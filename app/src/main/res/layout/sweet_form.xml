@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey_250"
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
@@ -24,33 +24,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/sweet_form_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="@string/form_name"
-        app:layout_constraintBottom_toTopOf="@+id/sweet_form_steps"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+    <include layout="@layout/main_form" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/sweet_form_steps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:height="@string/form_steps_ingredients_text_input_height"
-        android:hint="@string/form_steps"
-        app:layout_constraintBottom_toTopOf="@+id/sweet_form_ingredients"
-        app:layout_constraintTop_toBottomOf="@+id/sweet_form_name" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/sweet_form_ingredients"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:height="@string/form_steps_ingredients_text_input_height"
-        android:hint="@string/form_ingredients"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sweet_form_steps" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
