@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/form_name" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:height="70dp"
+        android:hint="@string/delivery_address" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:height="120dp"
+        android:hint="@string/type_items" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/hourly_rental" />
+
+</LinearLayout>
