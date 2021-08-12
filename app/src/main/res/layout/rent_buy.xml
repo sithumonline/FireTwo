@@ -13,7 +13,7 @@
         android:layout_height="194dp"
         android:contentDescription="@string/snack_card_two_description"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/snack_two" />
+        app:srcCompat="@drawable/buffet_set" />
 
     <TextView
         android:layout_width="wrap_content"

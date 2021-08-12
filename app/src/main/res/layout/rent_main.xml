@@ -23,7 +23,7 @@
                 android:layout_height="194dp"
                 android:contentDescription="@string/sweet_card_two_description"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/sweet_two" />
+                app:srcCompat="@drawable/buffet_set" />
 
             <LinearLayout
                 android:layout_width="match_parent"
