@@ -40,6 +40,14 @@
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="@color/white" />
 
+                <RatingBar
+                    android:id="@+id/ratingBar1"
+                    android:layout_width="240dp"
+                    android:layout_height="42dp"
+                    android:numStars="5"
+                    android:rating="3.5"
+                    android:layout_marginTop="8dp"/>
+
             </LinearLayout>
 
         </LinearLayout>
