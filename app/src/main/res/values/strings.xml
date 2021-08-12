@@ -31,6 +31,12 @@
     <string name="food_request_description">This recipe makes just the taco meat. You have to buy everything else, of course. Make a big batch and use for a multiple of different meals: add to bean burritos for a more hearty and tasty burrito, or add a can of beans (kidney, red, or pinto) and use for Frito® Pie, Navajo tacos, or taco salad. </string>
     <string name="food_request_user_name">Natalie</string>
 
+    <string name="delivery_name">Delivery</string>
+    <string name="delivery_address">Type address</string>
+    <string name="delivery_unit_price">Unit price</string>
+    <string name="delivery_example_price">Rs. 350/=</string>
+    <string name="delivery_example_name">Potato Chips</string>
+
     <string name="form_steps_ingredients_text_input_height">130dp</string>
     <string name="action_gallery_only">Pick a Photo</string>
 </resources>
