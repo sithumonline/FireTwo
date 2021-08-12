@@ -22,6 +22,15 @@
     <string name="form_name">Type a Name</string>
     <string name="form_steps">Type steps</string>
     <string name="form_ingredients">Type ingredients</string>
+
+    <string name="form_user_name">Type Your Name</string>
+    <string name="form_food_name">Type Name of Food</string>
+    <string name="form_food_description">Type Description</string>
+    <string name="food_request_name">Recipe Request</string>
+    <string name="food_request_food_name">Taco Meat</string>
+    <string name="food_request_description">This recipe makes just the taco meat. You have to buy everything else, of course. Make a big batch and use for a multiple of different meals: add to bean burritos for a more hearty and tasty burrito, or add a can of beans (kidney, red, or pinto) and use for Frito® Pie, Navajo tacos, or taco salad. </string>
+    <string name="food_request_user_name">Natalie</string>
+
     <string name="form_steps_ingredients_text_input_height">130dp</string>
     <string name="action_gallery_only">Pick a Photo</string>
 </resources>
