@@ -14,11 +14,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nexter_main);
 
-        CardView deliveryCard = findViewById(R.id.main_sweet_card);
+        CardView deliveryCard = findViewById(R.id.main_delivery_card);
         deliveryCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, DeliveryMainActivity.class));
+            }
+        });
+
+        CardView rentCard = findViewById(R.id.main_rent_card);
+        rentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RentMainActivity.class));
             }
         });
     }
