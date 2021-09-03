@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/form_name" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:height="@string/form_steps_ingredients_text_input_height"
+        android:hint="@string/form_steps" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/curry_form_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:height="@string/form_steps_ingredients_text_input_height"
+        android:hint="@string/form_ingredients" />
+
+</LinearLayout>
