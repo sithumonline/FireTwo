@@ -42,7 +42,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
 
-    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+//    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
 
     implementation 'io.github.ShawnLin013:number-picker:2.4.13'
 }

@@ -11,6 +11,14 @@
         android:theme="@style/Theme.FireTwo">
         <activity android:name=".NewNoteActivity"
             android:parentActivityName=".MainActivity"/>
+        <activity android:name=".DeliveryMainActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".NewDeliveryActivity"
+            android:parentActivityName=".DeliveryMainActivity"/>
+        <activity android:name=".RentMainActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".NewRentActivity"
+            android:parentActivityName=".RentMainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
