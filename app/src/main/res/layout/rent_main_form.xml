@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <include layout="@layout/content_gallery_only" />
+<!--            <include layout="@layout/content_gallery_only" />-->
 
             <include layout="@layout/rent_text_input" />
 
