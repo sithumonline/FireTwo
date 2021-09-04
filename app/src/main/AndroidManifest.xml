@@ -19,6 +19,8 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".NewRentActivity"
             android:parentActivityName=".RentMainActivity"/>
+        <activity android:name=".RentBuyActivity"
+            android:parentActivityName=".RentMainActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

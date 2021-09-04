@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -66,14 +65,10 @@ public class RentMainActivity extends Activity {
             }
         }).attachToRecyclerView(recyclerView);
 
-        adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new RentAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-//                Note note = documentSnapshot.toObject(Note.class);
                 String id = documentSnapshot.getId();
-//                String path = documentSnapshot.getReference().getPath();
-//                Toast.makeText(RentMainActivity.this,
-//                        "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
                 Rent updateRent = options.getSnapshots().getSnapshot(position).toObject(Rent.class);
 
                 Intent updateView = new Intent(RentMainActivity.this, RentBuyActivity.class);

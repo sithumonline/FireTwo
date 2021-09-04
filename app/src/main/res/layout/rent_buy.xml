@@ -37,6 +37,7 @@
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
+                    android:id="@+id/text_view_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/buffet_sets"
@@ -44,6 +45,7 @@
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:id="@+id/text_view_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/delivery_example_address"

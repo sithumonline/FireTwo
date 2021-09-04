@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.RentHolder> {
 
-    private NoteAdapter.OnItemClickListener listener;
+    private OnItemClickListener listener;
 
     public RentAdapter(@NonNull FirestoreRecyclerOptions<Rent> options) {
         super(options);
@@ -50,6 +50,16 @@ public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.Rent
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewAddress = itemView.findViewById(R.id.text_view_address);
             imageCard = itemView.findViewById(R.id.image_rent);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAbsoluteAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && listener != null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(position), position);
+                    }
+                }
+            });
         }
     }
 
@@ -57,7 +67,7 @@ public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.Rent
         void onItemClick(DocumentSnapshot documentSnapshot, int position);
     }
 
-    public void setOnItemClickListener(NoteAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
