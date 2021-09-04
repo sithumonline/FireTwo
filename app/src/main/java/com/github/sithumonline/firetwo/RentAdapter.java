@@ -33,6 +33,10 @@ public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.Rent
         return new RentHolder(v);
     }
 
+    public void deleteItem(int position) {
+        getSnapshots().getSnapshot(position).getReference().delete();
+    }
+
     class RentHolder extends RecyclerView.ViewHolder {
         TextView textViewName;
         TextView textViewAddress;
