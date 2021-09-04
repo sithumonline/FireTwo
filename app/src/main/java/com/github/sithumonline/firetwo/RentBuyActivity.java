@@ -24,6 +24,7 @@ public class RentBuyActivity extends AppCompatActivity {
 
         TextView textViewName = findViewById(R.id.text_view_name);
         TextView textViewAddress = findViewById(R.id.text_view_address);
+        TextView textRentItems = findViewById(R.id.text_rent_items);
         textViewRentFee = findViewById(R.id.rent_fee);
         NumberPicker hoursPicker = findViewById(R.id.number_picker_rent);
 
@@ -33,10 +34,12 @@ public class RentBuyActivity extends AppCompatActivity {
         }
         String name = extras.getString("Name");
         String address = extras.getString("Address");
+        String items = extras.getString("Items");
         int hourlyRental = extras.getInt("HourlyRental");
 
         textViewName.setText(name);
         textViewAddress.setText(address);
+        textRentItems.setText(items);
 
         hoursPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
