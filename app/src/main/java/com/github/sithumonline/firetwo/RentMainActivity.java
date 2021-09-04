@@ -68,15 +68,12 @@ public class RentMainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new RentAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                String id = documentSnapshot.getId();
                 Rent updateRent = options.getSnapshots().getSnapshot(position).toObject(Rent.class);
-
                 Intent updateView = new Intent(RentMainActivity.this, RentBuyActivity.class);
                 updateView.putExtra("Name", updateRent.getName());
                 updateView.putExtra("Address", updateRent.getAddress());
                 updateView.putExtra("Items", updateRent.getItems());
                 updateView.putExtra("HourlyRental", updateRent.getHourlyRental());
-                updateView.putExtra("DocumentId", id);
                 startActivity(updateView);
             }
         });
