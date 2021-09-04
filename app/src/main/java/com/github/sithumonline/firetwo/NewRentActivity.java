@@ -1,17 +1,24 @@
 package com.github.sithumonline.firetwo;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.github.dhaval2404.imagepicker.util.IntentUtils;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewRentActivity extends AppCompatActivity {
@@ -19,11 +26,14 @@ public class NewRentActivity extends AppCompatActivity {
     private EditText textAddress;
     private EditText textItems;
     private EditText textHourlyRental;
+    private ImageView imgGallery;
+    private Uri mGalleryUri;
+    private static final int GALLERY_IMAGE_REQ_CODE = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rent_text_input);
+        setContentView(R.layout.rent_main_form);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         setTitle("Add Rent");
@@ -32,6 +42,7 @@ public class NewRentActivity extends AppCompatActivity {
         textAddress = findViewById(R.id.curry_form_steps);
         textItems = findViewById(R.id.curry_form_items);
         textHourlyRental = findViewById(R.id.curry_form_ingredients);
+        imgGallery = findViewById(R.id.imgGallery);
     }
 
     @Override
@@ -65,13 +76,42 @@ public class NewRentActivity extends AppCompatActivity {
             return;
         }
 
-        Toast.makeText(this, name + address + items + hourlyRental, Toast.LENGTH_SHORT).show();
-        System.out.println(name + address + items + hourlyRental);
-
-        CollectionReference notebookRef = FirebaseFirestore.getInstance()
+        CollectionReference rentRef = FirebaseFirestore.getInstance()
                 .collection("Rent");
-        notebookRef.add(new Rent(name, address, items, hourlyRental));
+        rentRef.add(new Rent(name, address, items, hourlyRental));
         Toast.makeText(this, "Rent added", Toast.LENGTH_SHORT).show();
         finish();
     }
+
+    public void showImage(View view) {
+        startActivity(IntentUtils.getUriViewIntent(this, mGalleryUri));
+    }
+
+    public void pickGalleryImage(View view) {
+        ImagePicker.with(this)
+                // Crop Image(User can choose Aspect Ratio)
+                .crop()
+                // User can only select image from Gallery
+                .galleryOnly()
+
+                .galleryMimeTypes(new String[]{"image/png",
+                        "image/jpg",
+                        "image/jpeg"
+                })
+                // Image resolution will be less than 1080 x 1920
+                .maxResultSize(1080, 1920)
+                // .saveDir(getExternalFilesDir(null))
+                .start(GALLERY_IMAGE_REQ_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            mGalleryUri = data.getData();
+            System.out.println("Img URI : " + mGalleryUri);
+            imgGallery.setImageURI(mGalleryUri);
+        }
+    }
+
 }
