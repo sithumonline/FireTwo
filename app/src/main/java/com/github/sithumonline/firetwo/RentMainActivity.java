@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
@@ -63,6 +65,26 @@ public class RentMainActivity extends Activity {
                 adapter.deleteItem(viewHolder.getLayoutPosition());
             }
         }).attachToRecyclerView(recyclerView);
+
+        adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+//                Note note = documentSnapshot.toObject(Note.class);
+                String id = documentSnapshot.getId();
+//                String path = documentSnapshot.getReference().getPath();
+//                Toast.makeText(RentMainActivity.this,
+//                        "Position: " + position + " ID: " + id, Toast.LENGTH_SHORT).show();
+                Rent updateRent = options.getSnapshots().getSnapshot(position).toObject(Rent.class);
+
+                Intent updateView = new Intent(RentMainActivity.this, RentBuyActivity.class);
+                updateView.putExtra("Name", updateRent.getName());
+                updateView.putExtra("Address", updateRent.getAddress());
+                updateView.putExtra("Items", updateRent.getItems());
+                updateView.putExtra("HourlyRental", updateRent.getHourlyRental());
+                updateView.putExtra("DocumentId", id);
+                startActivity(updateView);
+            }
+        });
     }
 
     @Override

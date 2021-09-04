@@ -8,11 +8,14 @@ import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.RentHolder> {
+
+    private NoteAdapter.OnItemClickListener listener;
 
     public RentAdapter(@NonNull FirestoreRecyclerOptions<Rent> options) {
         super(options);
@@ -48,6 +51,14 @@ public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.Rent
             textViewAddress = itemView.findViewById(R.id.text_view_address);
             imageCard = itemView.findViewById(R.id.image_rent);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(DocumentSnapshot documentSnapshot, int position);
+    }
+
+    public void setOnItemClickListener(NoteAdapter.OnItemClickListener listener) {
+        this.listener = listener;
     }
 
 }
