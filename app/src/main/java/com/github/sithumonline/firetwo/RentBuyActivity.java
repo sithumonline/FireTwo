@@ -1,12 +1,11 @@
 package com.github.sithumonline.firetwo;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.shawnlin.numberpicker.NumberPicker;
-
-import java.util.Locale;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +26,7 @@ public class RentBuyActivity extends AppCompatActivity {
         TextView textRentItems = findViewById(R.id.text_rent_items);
         textViewRentFee = findViewById(R.id.rent_fee);
         NumberPicker hoursPicker = findViewById(R.id.number_picker_rent);
+        ImageView imageCard = findViewById(R.id.image_rent_buy);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
@@ -36,10 +36,14 @@ public class RentBuyActivity extends AppCompatActivity {
         String address = extras.getString("Address");
         String items = extras.getString("Items");
         int hourlyRental = extras.getInt("HourlyRental");
+        String imageLink = extras.getString("ImageLink");
 
         textViewName.setText(name);
         textViewAddress.setText(address);
         textRentItems.setText(items);
+        Glide.with(getApplicationContext()).load(imageLink)
+                .placeholder(R.drawable.buffet_set)
+                .into(imageCard);
 
         hoursPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override

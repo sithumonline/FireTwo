@@ -75,6 +75,7 @@ public class RentMainActivity extends AppCompatActivity {
                 updateView.putExtra("Address", updateRent.getAddress());
                 updateView.putExtra("Items", updateRent.getItems());
                 updateView.putExtra("HourlyRental", updateRent.getHourlyRental());
+                updateView.putExtra("ImageLink", updateRent.getImageLink());
                 startActivity(updateView);
             }
         });
