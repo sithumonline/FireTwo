@@ -44,7 +44,7 @@ public class RentMainActivity extends AppCompatActivity {
         FirestoreRecyclerOptions<Rent> options = new FirestoreRecyclerOptions.Builder<Rent>()
                 .setQuery(rentRef, Rent.class)
                 .build();
-        adapter = new com.github.sithumonline.firetwo.RentAdapter(options);
+        adapter = new com.github.sithumonline.firetwo.RentAdapter(options, getApplicationContext());
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

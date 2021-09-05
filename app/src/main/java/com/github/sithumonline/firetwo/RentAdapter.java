@@ -1,11 +1,13 @@
 package com.github.sithumonline.firetwo;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -16,16 +18,21 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.RentHolder> {
 
     private OnItemClickListener listener;
+    private Context appContext;
 
-    public RentAdapter(@NonNull FirestoreRecyclerOptions<Rent> options) {
+    public RentAdapter(@NonNull FirestoreRecyclerOptions<Rent> options, Context context) {
         super(options);
+        this.appContext = context;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull RentHolder holder, int position, @NonNull Rent model) {
         holder.textViewName.setText(model.getName());
         holder.textViewAddress.setText(model.getAddress());
-        holder.imageCard.setImageResource(R.drawable.buffet_set);
+//        holder.imageCard.setImageResource(R.drawable.buffet_set);
+        Glide.with(appContext).load(model.getImageLink())
+                .placeholder(R.drawable.buffet_set)
+                .into(holder.imageCard);
     }
 
     @NonNull
