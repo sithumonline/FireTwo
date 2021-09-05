@@ -177,5 +177,4 @@ public class NewRentActivity extends AppCompatActivity {
 
     }
 
-
 }

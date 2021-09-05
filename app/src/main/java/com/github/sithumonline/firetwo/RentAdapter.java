@@ -29,7 +29,6 @@ public class RentAdapter extends FirestoreRecyclerAdapter<Rent, RentAdapter.Rent
     protected void onBindViewHolder(@NonNull RentHolder holder, int position, @NonNull Rent model) {
         holder.textViewName.setText(model.getName());
         holder.textViewAddress.setText(model.getAddress());
-//        holder.imageCard.setImageResource(R.drawable.buffet_set);
         Glide.with(appContext).load(model.getImageLink())
                 .placeholder(R.drawable.buffet_set)
                 .into(holder.imageCard);
