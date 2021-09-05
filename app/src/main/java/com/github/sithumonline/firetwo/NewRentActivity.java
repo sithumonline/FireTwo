@@ -35,6 +35,7 @@ public class NewRentActivity extends AppCompatActivity {
     private EditText textAddress;
     private EditText textItems;
     private EditText textHourlyRental;
+    private String imageUrl;
     private ImageView imgGallery;
     private Uri mGalleryUri;
     private static final int GALLERY_IMAGE_REQ_CODE = 102;
@@ -70,10 +71,10 @@ public class NewRentActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.save:
 //                if (extras == null) { updateNote(); }
-                saveRent();
                 if (mGalleryUri != null) {
                     uploadImage();
                 }
+                saveRent();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -93,7 +94,13 @@ public class NewRentActivity extends AppCompatActivity {
 
         CollectionReference rentRef = FirebaseFirestore.getInstance()
                 .collection("Rent");
-        rentRef.add(new Rent(name, address, items, hourlyRental));
+
+        Rent rent = new Rent(name, address, items, hourlyRental);
+        System.out.println("ImG uRL : " + imageUrl);
+        if (imageUrl != null) {
+            rent = new Rent(name, address, items, imageUrl, hourlyRental);
+        }
+        rentRef.add(rent);
         Toast.makeText(this, "Rent added", Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -138,7 +145,11 @@ public class NewRentActivity extends AppCompatActivity {
         progressDialog.setTitle("Uploading...");
         progressDialog.show();
 
-        StorageReference ref = storageRef.child("images/" + UUID.randomUUID().toString());
+        String uuid = UUID.randomUUID().toString();
+        String imageUri = "images/" + uuid;
+        imageUrl = "https://firebasestorage.googleapis.com/v0/b/fireone-18094.appspot.com/o/images%2F" + uuid + "?alt=media";
+
+        StorageReference ref = storageRef.child(imageUri);
 
         ref.putFile(mGalleryUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
