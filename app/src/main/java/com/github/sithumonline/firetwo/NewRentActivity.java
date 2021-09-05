@@ -1,6 +1,7 @@
 package com.github.sithumonline.firetwo;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,8 +15,16 @@ import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.github.dhaval2404.imagepicker.util.IntentUtils;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +38,9 @@ public class NewRentActivity extends AppCompatActivity {
     private ImageView imgGallery;
     private Uri mGalleryUri;
     private static final int GALLERY_IMAGE_REQ_CODE = 102;
+
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +71,9 @@ public class NewRentActivity extends AppCompatActivity {
             case R.id.save:
 //                if (extras == null) { updateNote(); }
                 saveRent();
+                if (mGalleryUri != null) {
+                    uploadImage();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -84,6 +99,9 @@ public class NewRentActivity extends AppCompatActivity {
     }
 
     public void showImage(View view) {
+        if (mGalleryUri == null) {
+            return;
+        }
         startActivity(IntentUtils.getUriViewIntent(this, mGalleryUri));
     }
 
@@ -113,5 +131,40 @@ public class NewRentActivity extends AppCompatActivity {
             imgGallery.setImageURI(mGalleryUri);
         }
     }
+
+    private void uploadImage() {
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading...");
+        progressDialog.show();
+
+        StorageReference ref = storageRef.child("images/" + UUID.randomUUID().toString());
+
+        ref.putFile(mGalleryUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        progressDialog.dismiss();
+                        Toast.makeText(NewRentActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(NewRentActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                .getTotalByteCount());
+                        progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                    }
+                });
+
+    }
+
 
 }
