@@ -22,13 +22,18 @@
         android:height="70dp"
         android:hint="@string/delivery_address" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/curry_form_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:height="120dp"
-        android:hint="@string/type_items" />
+        android:gravity="top|left"
+        android:hint="@string/delivery_address"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:minLines="4"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/curry_form_ingredients"
