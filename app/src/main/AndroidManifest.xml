@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.sithumonline.firetwo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +10,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FireTwo">
-        <activity android:name=".NewNoteActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".NewNoteActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DeliveryMainActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewDeliveryActivity"
+            android:parentActivityName=".DeliveryMainActivity" />
+        <activity
+            android:name=".RentMainActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewRentActivity"
+            android:parentActivityName=".RentMainActivity" />
+        <activity
+            android:name=".RentBuyActivity"
+            android:parentActivityName=".RentMainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -47,7 +47,7 @@
     <string name="type_items">Type items</string>
     <string name="buffet_sets">Buffet Sets</string>
     <string name="hours">Hours</string>
-    <string name="rs_5160">Rs. 5160/=</string>
+    <string name="rs_5160">Rs. 0/=</string>
 
     <string name="form_steps_ingredients_text_input_height">130dp</string>
     <string name="action_gallery_only">Pick a Photo</string>

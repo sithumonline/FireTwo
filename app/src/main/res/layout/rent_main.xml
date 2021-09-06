@@ -1,66 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sweet_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".sweetMainActivity">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/sweet_card"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:orientation="vertical">
+
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/image_rent"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:contentDescription="@string/sweet_card_two_description"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/buffet_set" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/snack"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
-                android:contentDescription="@string/sweet_card_two_description"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/buffet_set" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/text_view_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/sweet"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:text="@string/buffet_sets"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white" />
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/buffet_sets"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/delivery_example_address"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/yellow_600"
-                    android:textSize="17sp" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/text_view_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delivery_example_address"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/action_button_desc"
-        app:srcCompat="@drawable/ic_add" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.cardview.widget.CardView>

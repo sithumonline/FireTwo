@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".snackMainActivity">
+    tools:context=".DeliveryMainActivity">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/snack_card"
@@ -28,7 +28,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/snack"
+                android:background="@color/sweet"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -54,7 +54,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
+        android:id="@+id/button_add_delivery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
