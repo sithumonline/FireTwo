@@ -1,60 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/curry_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".juiceMainActivity">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/juice_card"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:background="@color/juice"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/juice"
-                android:orientation="vertical"
-                android:padding="16dp">
+        <!-- Title, secondary and supporting text -->
+        <TextView
+            android:id="@+id/text_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/food_request_food_name"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/white" />
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_request_food_name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/food_request_description"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_request_description"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/food_request_user_name"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/yellow_600"
+            android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_request_user_name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/yellow_600"
-                    android:layout_marginTop="5dp"
-                    android:textSize="13sp" />
+    </LinearLayout>
 
-            </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_add_request"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/action_button_desc"
-        app:srcCompat="@drawable/ic_add" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.cardview.widget.CardView>
