@@ -37,6 +37,12 @@
         <activity
             android:name=".NewRecipeActivity"
             android:parentActivityName=".RecipeMainActivity" />
+        <activity
+            android:name=".RequestMainActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewRequestActivity"
+            android:parentActivityName=".RecipeMainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

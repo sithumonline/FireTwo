@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RecipeMainActivity.class));
             }
         });
+
+        CardView requestCard = findViewById(R.id.main_juice_card);
+        requestCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RequestMainActivity.class));
+            }
+        });
     }
 
 }
