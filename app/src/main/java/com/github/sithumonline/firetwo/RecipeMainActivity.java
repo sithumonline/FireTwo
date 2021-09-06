@@ -69,12 +69,14 @@ public class RecipeMainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new RecipeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                String id = documentSnapshot.getId();
                 Recipe updateRecipe = options.getSnapshots().getSnapshot(position).toObject(Recipe.class);
                 Intent updateView = new Intent(RecipeMainActivity.this, NewRecipeActivity.class);
                 updateView.putExtra("Name", updateRecipe.getName());
                 updateView.putExtra("Steps", updateRecipe.getSteps());
                 updateView.putExtra("Ingredients", updateRecipe.getIngredients());
                 updateView.putExtra("ImageLink", updateRecipe.getImageLink());
+                updateView.putExtra("DocumentId", id);
                 startActivity(updateView);
             }
         });

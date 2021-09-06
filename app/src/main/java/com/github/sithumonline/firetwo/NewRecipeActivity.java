@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.github.dhaval2404.imagepicker.util.IntentUtils;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,6 +39,8 @@ public class NewRecipeActivity extends AppCompatActivity {
     private ImageView imgGallery;
     private Uri mGalleryUri;
     private static final int GALLERY_IMAGE_REQ_CODE = 102;
+    private Bundle extras;
+    private String documentId;
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
@@ -54,6 +57,23 @@ public class NewRecipeActivity extends AppCompatActivity {
         textSteps = findViewById(R.id.curry_form_steps);
         textIngredients = findViewById(R.id.curry_form_ingredients);
         imgGallery = findViewById(R.id.imgGallery);
+
+        extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+
+        String name = extras.getString("Name");
+        String steps = extras.getString("Steps");
+        String ingredients = extras.getString("Ingredients");
+        String imageLink = extras.getString("ImageLink");
+        documentId = extras.getString("DocumentId");
+
+        textName.setText(name);
+        textSteps.setText(steps);
+        textIngredients.setText(ingredients);
+        Glide.with(getApplicationContext()).load(imageLink)
+                .into(imgGallery);
     }
 
     @Override
@@ -68,11 +88,14 @@ public class NewRecipeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save:
-//                if (extras == null) { updateNote(); }
                 if (mGalleryUri != null) {
                     uploadImage();
                 }
-                saveRecipe();
+                if (extras != null) {
+                    updateRecipe();
+                } else {
+                    saveRecipe();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -172,6 +195,40 @@ public class NewRecipeActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    private void updateRecipe() {
+        String name = textName.getText().toString();
+        String steps = textSteps.getText().toString();
+        String ingredients = textIngredients.getText().toString();
+
+        if (name.trim().isEmpty() || steps.trim().isEmpty() || textIngredients.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please insert name, steps, or ingredients", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        System.out.println("Doc ID at update : " + documentId);
+        System.out.println("ImG uRL at update : " + imageUrl);
+        if (imageUrl != null) {
+            FirebaseFirestore.getInstance()
+                    .collection("Recipe")
+                    .document(documentId)
+                    .update("name", name,
+                            "steps", steps,
+                            "ingredients", ingredients,
+                            "imageLink", imageUrl);
+            Toast.makeText(this, "Recipe updated", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        FirebaseFirestore.getInstance()
+                .collection("Recipe")
+                .document(documentId)
+                .update("name", name,
+                        "steps", steps,
+                        "ingredients", ingredients);
+        Toast.makeText(this, "Recipe updated", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 }
