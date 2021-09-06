@@ -29,13 +29,13 @@ public class RecipeMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        FloatingActionButton buttonAddRecipe = findViewById(R.id.button_add_note);
-//        buttonAddRecipe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(RecipeMainActivity.this, NewRecipeActivity.class));
-//            }
-//        });
+        FloatingActionButton buttonAddRecipe = findViewById(R.id.button_add_note);
+        buttonAddRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RecipeMainActivity.this, NewRecipeActivity.class));
+            }
+        });
 
         setUpRecyclerView();
     }
@@ -66,18 +66,18 @@ public class RecipeMainActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-//        adapter.setOnItemClickListener(new RecipeAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-//                Recipe updateRecipe = options.getSnapshots().getSnapshot(position).toObject(Recipe.class);
-//                Intent updateView = new Intent(RecipeMainActivity.this, NewRecipeActivity.class);
-//                updateView.putExtra("Name", updateRecipe.getName());
-//                updateView.putExtra("Address", updateRecipe.getAddress());
-//                updateView.putExtra("UnitPrice", updateRecipe.getUnitPrice());
-//                updateView.putExtra("ImageLink", updateRecipe.getImageLink());
-//                startActivity(updateView);
-//            }
-//        });
+        adapter.setOnItemClickListener(new RecipeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                Recipe updateRecipe = options.getSnapshots().getSnapshot(position).toObject(Recipe.class);
+                Intent updateView = new Intent(RecipeMainActivity.this, NewRecipeActivity.class);
+                updateView.putExtra("Name", updateRecipe.getName());
+                updateView.putExtra("Steps", updateRecipe.getSteps());
+                updateView.putExtra("Ingredients", updateRecipe.getIngredients());
+                updateView.putExtra("ImageLink", updateRecipe.getImageLink());
+                startActivity(updateView);
+            }
+        });
     }
 
     @Override

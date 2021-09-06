@@ -30,10 +30,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class NewDeliveryActivity extends AppCompatActivity {
+public class NewRecipeActivity extends AppCompatActivity {
     private EditText textName;
-    private EditText textAddress;
-    private EditText textUnitPrice;
+    private EditText textSteps;
+    private EditText textIngredients;
     private String imageUrl;
     private ImageView imgGallery;
     private Uri mGalleryUri;
@@ -45,14 +45,14 @@ public class NewDeliveryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_main_form);
+        setContentView(R.layout.main_form);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Delivery");
+        setTitle("Add Recipe");
 
         textName = findViewById(R.id.curry_form_name);
-        textAddress = findViewById(R.id.curry_form_steps);
-        textUnitPrice = findViewById(R.id.curry_form_ingredients);
+        textSteps = findViewById(R.id.curry_form_steps);
+        textIngredients = findViewById(R.id.curry_form_ingredients);
         imgGallery = findViewById(R.id.imgGallery);
     }
 
@@ -72,33 +72,33 @@ public class NewDeliveryActivity extends AppCompatActivity {
                 if (mGalleryUri != null) {
                     uploadImage();
                 }
-                saveDelivery();
+                saveRecipe();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void saveDelivery() {
+    private void saveRecipe() {
         String name = textName.getText().toString();
-        String address = textAddress.getText().toString();
-        int unitPrice = Integer.parseInt(textUnitPrice.getText().toString());
+        String steps = textSteps.getText().toString();
+        String ingredients = textIngredients.getText().toString();
 
-        if (name.trim().isEmpty() || address.trim().isEmpty() || textUnitPrice.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please insert name, address, or unit price", Toast.LENGTH_SHORT).show();
+        if (name.trim().isEmpty() || steps.trim().isEmpty() || textIngredients.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please insert name, steps, or ingredients", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        CollectionReference deliveryRef = FirebaseFirestore.getInstance()
-                .collection("Delivery");
+        CollectionReference recipeRef = FirebaseFirestore.getInstance()
+                .collection("Recipe");
 
-        Delivery delivery = new Delivery(name, address, unitPrice);
+        Recipe recipe = new Recipe(name, steps, ingredients);
         System.out.println("ImG uRL : " + imageUrl);
         if (imageUrl != null) {
-            delivery = new Delivery(name, address, imageUrl, unitPrice);
+            recipe = new Recipe(name, steps, ingredients, imageUrl);
         }
-        deliveryRef.add(delivery);
-        Toast.makeText(this, "Delivery added", Toast.LENGTH_SHORT).show();
+        recipeRef.add(recipe);
+        Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -153,14 +153,14 @@ public class NewDeliveryActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progressDialog.dismiss();
-                        Toast.makeText(NewDeliveryActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewRecipeActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(NewDeliveryActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewRecipeActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
