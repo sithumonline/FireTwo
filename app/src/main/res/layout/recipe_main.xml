@@ -1,66 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/curry_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CurryMainActivity">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/curry_card"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:orientation="vertical">
+
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/image_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:contentDescription="@string/curry_card_two_description"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/curry_two" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/curry"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
-                android:contentDescription="@string/curry_card_two_description"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/curry_two" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/text_view_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/curry"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:text="@string/curry_two_name"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white" />
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/curry_two_name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/white" />
-
-                <RatingBar
-                    android:id="@+id/ratingBar1"
-                    android:layout_width="240dp"
-                    android:layout_height="42dp"
-                    android:numStars="5"
-                    android:rating="3.5"
-                    android:layout_marginTop="8dp"/>
-
-            </LinearLayout>
+            <RatingBar
+                android:id="@+id/ratingBar1"
+                android:layout_width="240dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:numStars="5"
+                android:rating="3.5" />
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_add_recipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/action_button_desc"
-        app:srcCompat="@drawable/ic_add" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.cardview.widget.CardView>

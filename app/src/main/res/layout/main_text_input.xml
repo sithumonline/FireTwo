@@ -11,20 +11,30 @@
         android:layout_margin="8dp"
         android:hint="@string/form_name" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/curry_form_steps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:height="@string/form_steps_ingredients_text_input_height"
-        android:hint="@string/form_steps" />
+        android:gravity="top|left"
+        android:hint="@string/form_steps"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:minLines="4"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/curry_form_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:height="@string/form_steps_ingredients_text_input_height"
-        android:hint="@string/form_ingredients" />
+        android:gravity="top|left"
+        android:hint="@string/form_ingredients"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:minLines="4"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false" />
 
 </LinearLayout>

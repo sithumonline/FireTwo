@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.github.dhaval2404.imagepicker.util.IntentUtils;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,14 +31,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class NewDeliveryActivity extends AppCompatActivity {
+public class NewRecipeActivity extends AppCompatActivity {
     private EditText textName;
-    private EditText textAddress;
-    private EditText textUnitPrice;
+    private EditText textSteps;
+    private EditText textIngredients;
     private String imageUrl;
     private ImageView imgGallery;
     private Uri mGalleryUri;
     private static final int GALLERY_IMAGE_REQ_CODE = 102;
+    private Bundle extras;
+    private String documentId;
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
@@ -45,15 +48,32 @@ public class NewDeliveryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_main_form);
+        setContentView(R.layout.main_form);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Delivery");
+        setTitle("Add Recipe");
 
         textName = findViewById(R.id.curry_form_name);
-        textAddress = findViewById(R.id.curry_form_steps);
-        textUnitPrice = findViewById(R.id.curry_form_ingredients);
+        textSteps = findViewById(R.id.curry_form_steps);
+        textIngredients = findViewById(R.id.curry_form_ingredients);
         imgGallery = findViewById(R.id.imgGallery);
+
+        extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+
+        String name = extras.getString("Name");
+        String steps = extras.getString("Steps");
+        String ingredients = extras.getString("Ingredients");
+        String imageLink = extras.getString("ImageLink");
+        documentId = extras.getString("DocumentId");
+
+        textName.setText(name);
+        textSteps.setText(steps);
+        textIngredients.setText(ingredients);
+        Glide.with(getApplicationContext()).load(imageLink)
+                .into(imgGallery);
     }
 
     @Override
@@ -68,37 +88,40 @@ public class NewDeliveryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save:
-//                if (extras == null) { updateNote(); }
                 if (mGalleryUri != null) {
                     uploadImage();
                 }
-                saveDelivery();
+                if (extras != null) {
+                    updateRecipe();
+                } else {
+                    saveRecipe();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void saveDelivery() {
+    private void saveRecipe() {
         String name = textName.getText().toString();
-        String address = textAddress.getText().toString();
-        int unitPrice = Integer.parseInt(textUnitPrice.getText().toString());
+        String steps = textSteps.getText().toString();
+        String ingredients = textIngredients.getText().toString();
 
-        if (name.trim().isEmpty() || address.trim().isEmpty() || textUnitPrice.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please insert name, address, or unit price", Toast.LENGTH_SHORT).show();
+        if (name.trim().isEmpty() || steps.trim().isEmpty() || textIngredients.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please insert name, steps, or ingredients", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        CollectionReference deliveryRef = FirebaseFirestore.getInstance()
-                .collection("Delivery");
+        CollectionReference recipeRef = FirebaseFirestore.getInstance()
+                .collection("Recipe");
 
-        Delivery delivery = new Delivery(name, address, unitPrice);
+        Recipe recipe = new Recipe(name, steps, ingredients);
         System.out.println("ImG uRL : " + imageUrl);
         if (imageUrl != null) {
-            delivery = new Delivery(name, address, imageUrl, unitPrice);
+            recipe = new Recipe(name, steps, ingredients, imageUrl);
         }
-        deliveryRef.add(delivery);
-        Toast.makeText(this, "Delivery added", Toast.LENGTH_SHORT).show();
+        recipeRef.add(recipe);
+        Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -153,14 +176,14 @@ public class NewDeliveryActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         progressDialog.dismiss();
-                        Toast.makeText(NewDeliveryActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewRecipeActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(NewDeliveryActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewRecipeActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -172,6 +195,40 @@ public class NewDeliveryActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    private void updateRecipe() {
+        String name = textName.getText().toString();
+        String steps = textSteps.getText().toString();
+        String ingredients = textIngredients.getText().toString();
+
+        if (name.trim().isEmpty() || steps.trim().isEmpty() || textIngredients.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please insert name, steps, or ingredients", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        System.out.println("Doc ID at update : " + documentId);
+        System.out.println("ImG uRL at update : " + imageUrl);
+        if (imageUrl != null) {
+            FirebaseFirestore.getInstance()
+                    .collection("Recipe")
+                    .document(documentId)
+                    .update("name", name,
+                            "steps", steps,
+                            "ingredients", ingredients,
+                            "imageLink", imageUrl);
+            Toast.makeText(this, "Recipe updated", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        FirebaseFirestore.getInstance()
+                .collection("Recipe")
+                .document(documentId)
+                .update("name", name,
+                        "steps", steps,
+                        "ingredients", ingredients);
+        Toast.makeText(this, "Recipe updated", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 }

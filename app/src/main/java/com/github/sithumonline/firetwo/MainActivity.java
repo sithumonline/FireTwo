@@ -29,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RentMainActivity.class));
             }
         });
+
+        CardView recipeCard = findViewById(R.id.main_curry_card);
+        recipeCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RecipeMainActivity.class));
+            }
+        });
     }
 
 }
