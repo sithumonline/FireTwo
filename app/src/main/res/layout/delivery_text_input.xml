@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".NewDeliveryActivity"
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputEditText
@@ -11,19 +14,25 @@
         android:layout_margin="8dp"
         android:hint="@string/form_name" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/curry_form_steps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:height="@string/form_steps_ingredients_text_input_height"
-        android:hint="@string/delivery_address" />
+        android:gravity="top|left"
+        android:hint="@string/delivery_address"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:minLines="4"
+        android:scrollbars="vertical"
+        android:scrollHorizontally="false" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/curry_form_ingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="@string/delivery_unit_price" />
+        android:hint="@string/delivery_unit_price"
+        android:inputType="numberDecimal"/>
 
 </LinearLayout>
