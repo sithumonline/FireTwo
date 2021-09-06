@@ -20,6 +20,9 @@
             android:name=".NewDeliveryActivity"
             android:parentActivityName=".DeliveryMainActivity" />
         <activity
+            android:name=".DeliveryBuyActivity"
+            android:parentActivityName=".DeliveryMainActivity" />
+        <activity
             android:name=".RentMainActivity"
             android:parentActivityName=".MainActivity" />
         <activity
