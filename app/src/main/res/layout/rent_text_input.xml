@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:gravity="top|left"
-        android:hint="@string/delivery_address"
+        android:hint="@string/type_items"
         android:inputType="textMultiLine"
         android:lines="6"
         android:minLines="4"
